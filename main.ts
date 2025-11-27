@@ -1,28 +1,26 @@
-/* Copyright (c) 2020 MTHS All rights reserved
+/* Copyright (c) 2025 MTHS All rights reserved
  *
  * Created by: Sami Osman
  * Created on: Sep 2025
- * This program gets the current tempurature, in K.
+ * This program gets the current tempurature in Celcius, and converts to Kelvin.
 */
+
+// variable for temperature
+let tempC: number
+let tempK: number
 
 basic.clearScreen()
 basic.showIcon(IconNames.Happy)
 
-// Converts temperature to kelvin
-let temperature: number
-let temperatureValueKelvin: number
-
-// Gets temperature value
-temperature = input.temperature()
-temperatureValueKelvin = Math.round(temperature + 273.15)
-
-
-// When button A is pressed...
 input.onButtonPressed(Button.A, function () {
-    basic.clearScreen()
-    basic.showString('The temperature is' + temperatureValueKelvin.toString() + 'K')
-    basic.clearScreen()
-    basic.showIcon(IconNames.Happy)
-    basic.pause(1000)
+    // get temperature in Celsius
+    tempC = input.temperature()
 
+    // convert to Kelvin
+    tempK = tempC + 273.15
+    tempK = Math.round(tempK)
+
+    // output answer
+    basic.clearScreen()
+    basic.showString(tempK + " K")
 })
